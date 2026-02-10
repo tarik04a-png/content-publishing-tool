@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>TikTok OAuth Callback</title>
+</head>
+<body>
+  <h1>OAuth callback received</h1>
+  <p>You can close this tab.</p>
+  <pre id="out"></pre>
+
+  <script>
+    const out = document.getElementById("out");
+    const params = new URLSearchParams(window.location.search);
+    const obj = {};
+    for (const [k, v] of params.entries()) obj[k] = v;
+
+    out.textContent = JSON.stringify({
+      url: window.location.href,
+      params: obj
+    }, null, 2);
+  </script>
+</body>
+</html>
